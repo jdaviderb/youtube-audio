@@ -11,6 +11,8 @@ require 'youtube_audio/format'
 require 'youtube_audio/player_response'
 require 'youtube_audio/script_parser'
 require 'youtube_audio/decipher'
+require 'youtube_audio/search'
+require 'youtube_audio/search_item'
 
 module YoutubeAudio
 end
