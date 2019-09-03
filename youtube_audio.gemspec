@@ -14,6 +14,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'description test'
   spec.homepage      = 'https://github.com/jdaviderb/youtube-audio'
   spec.license       = 'MIT'
+  spec.metadata['yard.run'] = 'yri'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -41,4 +42,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'webmock'
+  spec.add_development_dependency 'vcr'
+  spec.add_development_dependency 'simplecov'
+  spec.add_dependency 'mechanize'
+  spec.add_dependency 'mini_racer'
 end
