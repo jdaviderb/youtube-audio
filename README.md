@@ -41,7 +41,7 @@ puts youtube.formats # Array<YoutubeAudio::Format>
 ```ruby
 require 'youtube_audio'
 
-search_items = YoutubeAudio::Search.new('la vida boheme - flamingo').results # Array<YoutubeAudio::Format>
+search_items = YoutubeAudio::Search.new('la vida boheme - flamingo').results # Array<YoutubeAudio::SearchItem>
 
 puts search_items.first.title # La Vida Boheme - Flamingo
 puts search_items.first.description # Official Music Video
