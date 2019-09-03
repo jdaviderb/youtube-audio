@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 RSpec.describe YoutubeAudio::Search do
-  let(:keyword) { "la vida boheme - flamingo" }
+  let(:keyword) { 'la vida boheme - flamingo' }
 
   subject { described_class.new(keyword) }
 
   describe '#results' do
-    it "returns a collection of YoutubeAudio::SearchItem" do
-      VCR.use_cassette("search/results") do
+    it 'returns a collection of YoutubeAudio::SearchItem' do
+      VCR.use_cassette('search/results') do
         expect(subject.results.length).to eq(23)
         expect(subject.results.first)
           .to be_instance_of(YoutubeAudio::SearchItem)

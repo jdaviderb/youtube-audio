@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Jorge Hernandez']
   spec.email         = ['jdaviderb@gmail.com']
 
-  spec.summary       = 'asasasas'
-  spec.description   = 'description test'
+  spec.summary       = 'extract videos from youtube in audio format using webscraping techniques'
+  spec.description   = 'extract videos from youtube in audio format using webscraping techniques'
   spec.homepage      = 'https://github.com/jdaviderb/youtube-audio'
   spec.license       = 'MIT'
   spec.metadata['yard.run'] = 'yri'

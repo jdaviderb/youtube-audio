@@ -5,10 +5,12 @@ RSpec.describe YoutubeAudio::Decipher do
 
   describe '#decipher' do
     let(:signature) do
-      'qLALgxI2AwRAIgbG7LwidtAcuTBa1Rw8hp5sUXLESfIyXM2MHr4m6jDtUCIARjHJ-5YKOvBfrSPrfc9N62UwxcUvy4kVFNQRL_2glvvlg'
+      'qLALgxI2AwRAIgbG7LwidtAcuTBa1Rw8hp5sUXLESfIyXM2MHr4m6jDtUCIARjHJ-5Y' \
+        'KOvBfrSPrfc9N62UwxcUvy4kVFNQRL_2glvvlg'
     end
     let(:decipher) do
-      'ALgxI2wwRAIgbG7LwidtAcuTBa1Rs8hp5qUXLESfIyXM2MHr4m6jDtUCIARjHJ-5YKOvBfrSPrfc9N62UwxcUvy4kVFNQRL_2glv'
+      'ALgxI2wwRAIgbG7LwidtAcuTBa1Rs8hp5qUXLESfIyXM2MHr4m6jDtUCIARjHJ-5' \
+        'YKOvBfrSPrfc9N62UwxcUvy4kVFNQRL_2glv'
     end
 
     it 'returns decipher signature' do

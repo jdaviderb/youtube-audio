@@ -1,43 +1,68 @@
-# YoutubeAudio
+<p align="center" style="font-weight: bold; font-size: 12px;">
+  This gem can extract videos from youtube in audio format using webscraping techniques
+</p>
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/youtube_audio`. To experiment with that code, run `bin/console` for an interactive prompt.
+# Features :rocket:
 
-TODO: Delete this and the text above, and describe your gem
+### Download a video in audio format :musical_note:
+```ruby
+require 'youtube_audio'
 
-## Installation
+youtube = YoutubeAudio::Download.new('https://www.youtube.com/watch?v=xoWRkd3oGcs')
+
+puts youtube.formats # Array<YoutubeAudio::Format>
+
+# =>
+# [
+#   {
+#     "url": "https://r7---sn-ja5gvjv-cvbl.googlevideo.com/vide.........",
+#     "mime_type": "audio/mp4;",
+#     "audio_quality": "AUDIO_QUALITY_MEDIUM",
+#     "approx_duration_ms": "317068"
+
+#   }
+# ]
+```
+
+### Search videos in youtube :squirrel:
+
+```ruby
+require 'youtube_audio'
+
+search_items = YoutubeAudio::Search.new('la vida boheme - flamingo').results # Array<YoutubeAudio::Format>
+
+puts search_items.first.title # La Vida Boheme - Flamingo
+puts search_items.first.description # Official Music Video
+puts search_items.first # Array<YoutubeAudio::Format>
+
+# =>
+# [
+#   {
+#     "url": "https://r7---sn-ja5gvjv-cvbl.googlevideo.com/vide.........",
+#     "mime_type": "audio/mp4;",
+#     "audio_quality": "AUDIO_QUALITY_MEDIUM",
+#     "approx_duration_ms": "317068"
+
+#   }
+# ]
+```
+
+# Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
 gem 'youtube_audio'
 ```
-
-And then execute:
-
-    $ bundle
-
 Or install it yourself as:
 
     $ gem install youtube_audio
 
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/youtube_audio. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jdaviderb/youtube_audio. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the YoutubeAudio project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/youtube_audio/blob/master/CODE_OF_CONDUCT.md).

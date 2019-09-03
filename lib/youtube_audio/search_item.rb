@@ -7,11 +7,11 @@ module YoutubeAudio
     end
 
     def title
-      @element.search(".yt-lockup-title a").text
+      @element.search('.yt-lockup-title a').text
     end
 
     def description
-      @element.search(".yt-lockup-description").text
+      @element.search('.yt-lockup-description').text
     end
 
     def formats

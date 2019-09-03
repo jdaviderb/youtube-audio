@@ -9,19 +9,11 @@ module YoutubeAudio
     end
 
     def results
-      search_url = "https://www.youtube.com/results?search_query="
+      selector = '.section-list li ol.item-section li .yt-lockup-tile'
+      search_url = 'https://www.youtube.com/results?search_query='
       @results ||= agent.get(search_url + CGI.escape(keywords))
-           .search(".section-list li ol.item-section li .yt-lockup-tile")
-           .map { |element| to_search_item(element) }
-    end
-
-    def current_page
-    end
-
-    def next_page
-    end
-
-    def back_page
+                        .search(selector)
+                        .map { |element| to_search_item(element) }
     end
 
     private
@@ -38,8 +30,8 @@ module YoutubeAudio
     end
 
     def user_agent
-      'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; WOW64; Trident/4.0; SLCC1)'
+      'Mozilla/4.0 (compatible; MSIE 8.0; ' \
+        'Windows NT 6.0; WOW64; Trident/4.0; SLCC1)'
     end
-
   end
 end
