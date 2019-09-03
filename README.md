@@ -45,7 +45,7 @@ search_items = YoutubeAudio::Search.new('la vida boheme - flamingo').results # A
 
 puts search_items.first.title # La Vida Boheme - Flamingo
 puts search_items.first.description # Official Music Video
-puts search_items.first # Array<YoutubeAudio::Format>
+puts search_items.first.formats # Array<YoutubeAudio::Format>
 
 # =>
 # [
