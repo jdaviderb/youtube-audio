@@ -2,7 +2,7 @@
   This gem can extract videos from youtube in audio format using webscraping techniques
 </p>
 
-<a href="https://codeclimate.com/github/jdaviderb/youtube-audio/maintainability"><img src="https://api.codeclimate.com/v1/badges/9ff835347572374cb547/maintainability" /></a> [![Build Status](https://travis-ci.org/jdaviderb/youtube-audio.svg?branch=master)](https://travis-ci.org/jdaviderb/youtube-audio)
+<a href="https://codeclimate.com/github/jdaviderb/youtube-audio/maintainability"><img src="https://api.codeclimate.com/v1/badges/9ff835347572374cb547/maintainability" /></a> [![Build Status](https://travis-ci.org/jdaviderb/youtube-audio.svg?branch=master)](https://travis-ci.org/jdaviderb/youtube-audio) <a href="https://codeclimate.com/github/jdaviderb/youtube-audio/test_coverage"><img src="https://api.codeclimate.com/v1/badges/9ff835347572374cb547/test_coverage" /></a>
 
 
 # Features :rocket:
