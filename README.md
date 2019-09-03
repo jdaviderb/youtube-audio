@@ -2,6 +2,9 @@
   This gem can extract videos from youtube in audio format using webscraping techniques
 </p>
 
+<a href="https://codeclimate.com/github/jdaviderb/youtube-audio/maintainability"><img src="https://api.codeclimate.com/v1/badges/9ff835347572374cb547/maintainability" /></a> [![Build Status](https://travis-ci.org/jdaviderb/youtube-audio.svg?branch=master)](https://travis-ci.org/jdaviderb/youtube-audio)
+
+
 # Features :rocket:
 
 ### Download a video in audio format :musical_note:
@@ -61,7 +64,7 @@ Or install it yourself as:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/jdaviderb/youtube_audio. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jdaviderb/youtube-audio. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
