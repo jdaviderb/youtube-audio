@@ -3,12 +3,19 @@
 RSpec.describe YoutubeAudio::UrlDecipher do
   let(:cipher) { 'url=mock&s=mock-signature&sp=sig' }
 
-  subject { described_class.new(cipher) }
+  subject do
+    described_class.new(cipher, script_player_url: 'script_player_url_mock')
+  end
 
   describe '#decipher' do
+    before do
+      expect(YoutubeAudio::Decipher).to receive(:new)
+        .with('script_player_url_mock')
+        .and_return(double(decipher: 'sig-mock'))
+    end
+
     it 'deciphers a cipher url' do
-      expect(YoutubeAudio::Decipher).to receive(:new).and_call_original
-      expect(subject.decipher).to eq('mock&sig=gk-simcat')
+      expect(subject.decipher).to eq('mock&sig=sig-mock')
     end
   end
 end

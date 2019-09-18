@@ -2,7 +2,10 @@
 
 module YoutubeAudio
   class Format
-    def initialize(response_raw)
+    attr_reader :script_player_url
+
+    def initialize(response_raw, script_player_url: nil)
+      @script_player_url = script_player_url
       @response_raw = response_raw
     end
 
@@ -11,7 +14,12 @@ module YoutubeAudio
     end
 
     def url
-      return UrlDecipher.new(cipher).decipher if cipher
+      if cipher
+        return UrlDecipher.new(
+          cipher,
+          script_player_url: script_player_url
+        ).decipher
+      end
 
       @response_raw&.dig('url')
     end

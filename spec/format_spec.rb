@@ -12,7 +12,7 @@ RSpec.describe YoutubeAudio::Format do
     )
   end
 
-  subject { described_class.new(response_raw) }
+  subject { described_class.new(response_raw, script_player_url: 'mock') }
 
   describe '#mime_type' do
     it { expect(subject.mime_type).to eq('audio/mp4') }
@@ -36,7 +36,8 @@ RSpec.describe YoutubeAudio::Format do
         .and_return('url=mock&s=mock-signature&sp=sig')
 
       expect(YoutubeAudio::UrlDecipher).to receive(:new)
-        .with('url=mock&s=mock-signature&sp=sig')
+        .with('url=mock&s=mock-signature&sp=sig',
+              script_player_url: 'mock')
         .and_return(mock)
 
       expect(subject.url).to eq('decipher')
