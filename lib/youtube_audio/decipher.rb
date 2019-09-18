@@ -2,34 +2,36 @@
 
 module YoutubeAudio
   class Decipher
+    attr_reader :script_player_url
+    URL = 'https://www.youtube.com'
+
+    def initialize(script_player_url)
+      @script_player_url = script_player_url
+    end
+
     # @param cipher [string] youtube signature
     def decipher(cipher)
-      decipher = cipher.split('')
-      pb(decipher, 35)
-      pb(decipher, 30)
-      wh(decipher)
-      pb(decipher, 2)
-      decipher = p7(decipher, 3)
-      wh(decipher)
-      pb(decipher, 8)
-      decipher = p7(decipher, 2)
-      decipher.join('')
+      klass = extract_decode_function_handler
+      miniracer_klass = miniracer_context
+
+      miniracer_klass.eval(klass.cipher_helpers_object)
+      miniracer_klass.eval("var #{klass.decipher_function}")
+      miniracer_klass.eval("#{klass.decryption_function}('#{cipher}')")
     end
 
-    def pb(a, b)
-      c = a[0]
-      a[0] = a[b % a.length]
-      a[b % a.length] = c
+    private
+
+    def extract_decode_function_handler
+      @extract_decode_function_handler ||=
+        ExtractDecodeFunction.new(script_player_content)
     end
 
-    def wh(a)
-      result = a.reverse!
-      result
+    def miniracer_context
+      MiniRacer::Context.new
     end
 
-    def p7(a, b)
-      result = a.slice(b, a.length)
-      result
+    def script_player_content
+      @script_player_content ||= Net::HTTP.get(URI(URL + script_player_url))
     end
   end
 end

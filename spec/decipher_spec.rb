@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 RSpec.describe YoutubeAudio::Decipher do
-  subject { described_class.new }
+  let(:player_base_url) do
+    '/yts/jsbin/player-plasma-ias-phone-en_US-vflZqC1Iu/base.js'
+  end
+
+  subject { described_class.new(player_base_url) }
 
   describe '#decipher' do
     let(:signature) do
@@ -9,12 +13,14 @@ RSpec.describe YoutubeAudio::Decipher do
         'KOvBfrSPrfc9N62UwxcUvy4kVFNQRL_2glvvlg'
     end
     let(:decipher) do
-      'ALgxI2wwRAIgbG7LwidtAcuTBa1Rs8hp5qUXLESfIyXM2MHr4m6jDtUCIARjHJ-5' \
-        'YKOvBfrSPrfc9N62UwxcUvy4kVFNQRL_2glv'
+      'vgg2_LRQNFVk4yvUcxwU26N9cfrPSrfBvOKY5-JHjRAICUtDj6m4rHM2MXyIfSELX' \
+        'Uslph8wR1aBTucAtdiwL7GbgIARwA2Ixq'
     end
 
     it 'returns decipher signature' do
-      expect(subject.decipher(signature)).to eq(decipher)
+      VCR.use_cassette('youtube/player_base.js') do
+        expect(subject.decipher(signature)).to eq(decipher)
+      end
     end
   end
 end

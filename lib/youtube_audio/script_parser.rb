@@ -16,7 +16,11 @@ module YoutubeAudio
       mini_racer_context.eval(@script)
       # get player response ...
       response = mini_racer_context.eval('ytInitialPlayerConfig')
-      PlayerResponse.new(JSON.parse(response['args']['player_response']))
+
+      PlayerResponse.new(
+        JSON.parse(response['args']['player_response']),
+        script_player_url: response['assets']['js']
+      )
     end
   end
 end
